@@ -18,37 +18,63 @@ I'm a junior DevOps engineer with some expertise in BackEnd development using Ja
 [![portfolio](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RecursiveDeveloper)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jhoan-jesus-ortiz-sandoval-a66152198/)
 
-# Install and set up a Minikube cluster with Ansible
+# ArgoCD Lab with MicroK8s
 
-Set up and provision your own local Minikube cluster using Vagrant to deploy an Ubuntu VM and Ansible roles to provision a one node Minikube cluster along with all the tools needed to interact with it.
+Set up and provision your own local ArgoCD environment using Vagrant to deploy an Ubuntu VM with MicroK8s cluster and ArgoCD for GitOps workflows. This lab provides a complete local development environment for learning and testing ArgoCD deployments.
 
-![Simple_Ansible-lab_diagram](https://raw.githubusercontent.com/RecursiveDeveloper/static-media-content/refs/heads/main/Simple_Ansible-lab_diagram.png)
+![Simple_Ansible-lab_diagram](https://raw.githubusercontent.com/RecursiveDeveloper/static-media-content/refs/heads/main/argocd-lab.png)
 
 ## Tech Stack 
 
-- **Client:** ---
-- **Server:** ---
-- **Database:** ---
-- **Cloud provider:** ---
-- **Tools:** Vagrant, Ansible
+- **Container Runtime:** Docker
+- **Kubernetes:** MicroK8s
+- **GitOps:** ArgoCD
+- **Virtualization:** VirtualBox, Vagrant
+- **OS:** Ubuntu 22.04 (Jammy)
 
-## Installation
+## Prerequisites
 
 1. Install VirtualBox as your virtual machine provider [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-2. Install Vagrant according to your operating system [Install Vagrant
-](https://developer.hashicorp.com/vagrant/downloads)
+2. Install Vagrant according to your operating system [Install Vagrant](https://developer.hashicorp.com/vagrant/downloads)
+3. Ensure you have at least 4GB RAM available for the VM
 
 ## Deployment
 
-To deploy this project run
+To deploy this project run:
 
 ```bash
-  vagrant up
+vagrant up
 ```
 
-For more informations about vagrant commands check [vagrant-cheat-sheet](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4)
+The provisioning process will:
+1. Install Docker Engine
+2. Install kubectl and Kubernetes tools
+3. Install and configure MicroK8s
+4. Deploy ArgoCD with ingress configuration
 
-If needed, you can modify playbook tasks to include all the tools you want to. Besides, requirements yaml file contains all the roles that will be installed, therefore if you plan to add or remove any role, erase the corresponding line both in requirements yaml file and in the playbook file.
+## Access ArgoCD
+
+After successful deployment:
+- **URL:** https://localhost
+- **Username:** admin
+- **Password:** Check the terminal output after `vagrant up` completes
+
+## Project Structure
+
+```
+argocd-lab/
+├── scripts/
+│   ├── install_docker.sh      # Docker installation
+│   ├── install_k8s_tools.sh    # kubectl installation
+│   ├── install_microk8s.sh     # MicroK8s setup
+│   └── install_argocd.sh       # ArgoCD deployment
+├── k8s-manifests/
+│   └── ingress.yml             # ArgoCD ingress configuration
+├── Vagrantfile                 # VM configuration
+└── README.md
+```
+
+For more information about Vagrant commands, check the [vagrant-cheat-sheet](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4)
 
 ## Authors
 
