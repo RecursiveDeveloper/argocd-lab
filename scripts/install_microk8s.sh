@@ -12,4 +12,4 @@ microk8s status --wait-ready
 sudo usermod -aG microk8s $owner
 sudo chown -f -R $owner ~/.kube
 
-sudo microk8s enable dns metrics-server dashboard ingress
+sudo microk8s enable dns metrics-server ingress
