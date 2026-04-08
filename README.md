@@ -22,7 +22,7 @@ I'm a junior DevOps engineer with some expertise in BackEnd development using Ja
 
 Set up and provision your own local ArgoCD environment using Vagrant to deploy an Ubuntu VM with MicroK8s cluster and ArgoCD for GitOps workflows. This lab provides a complete local development environment for learning and testing ArgoCD deployments.
 
-![Simple_Ansible-lab_diagram](https://raw.githubusercontent.com/RecursiveDeveloper/static-media-content/refs/heads/main/argocd-lab.png)
+![Simple_Ansible-lab_diagram](https://raw.githubusercontent.com/RecursiveDeveloper/static-media-content/refs/heads/main/Argocd_Simple-Diagram.png)
 
 ## Tech Stack 
 
